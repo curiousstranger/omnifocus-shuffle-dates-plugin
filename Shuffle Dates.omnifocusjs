@@ -48,25 +48,7 @@
     });
   };
 
-  // Helper function to create pre-configured actions
-  const createPreConfiguredAction = (label, shuffleDue, shuffleDefer, shuffleReview, days) => {
-    const action = new PlugIn.Action(function (selection) {
-      shuffleDatesForSelection(selection, shuffleDue, shuffleDefer, shuffleReview, () => getRandomDateInDays(days));
-    });
-
-    action.validate = function (selection) {
-      return !!selection.tasks.length || !!selection.projects.length;
-    };
-
-    action.label = label;
-    action.mediumLabel = label;
-    action.paletteLabel = label;
-
-    return action;
-  };
-
-  // Main action with full form interface (original behavior)
-  const mainAction = new PlugIn.Action(function (selection) {
+  const action = new PlugIn.Action(function (selection) {
     // extract start/end dates and date types from previous selections
     let { startDate, endDate, shuffleDue, shuffleDefer, shuffleReview } = settings;
 
@@ -110,13 +92,43 @@
     inputForm.addField(shuffleDeferField);
     inputForm.addField(shuffleReviewField);
 
+    // Add preset option dropdown
+    const presetOptions = [
+      { label: "Custom (use fields above)", value: "custom" },
+      { label: "Due Dates - 7 days", value: "due-7" },
+      { label: "Due Dates - 14 days", value: "due-14" },
+      { label: "Due Dates - 30 days", value: "due-30" },
+      { label: "Defer Dates - 7 days", value: "defer-7" },
+      { label: "Defer Dates - 14 days", value: "defer-14" },
+      { label: "Defer Dates - 30 days", value: "defer-30" },
+      { label: "Review Dates - 7 days", value: "review-7" },
+      { label: "Review Dates - 14 days", value: "review-14" },
+      { label: "Review Dates - 30 days", value: "review-30" }
+    ];
+    
+    const presetField = new Form.Field.Option(
+      "preset",
+      "Quick Presets",
+      presetOptions,
+      presetOptions[0]
+    );
+    
+    inputForm.addField(presetField);
+
     const formPrompt =
-      "Assign random dates for selected tasks and projects between the following dates:";
+      "Choose a quick preset or use custom settings to assign random dates:";
     const buttonTitle = "Shuffle Away!";
 
     // make sure dates are formatted correctly, min is <= max, and at least one date type is selected
     inputForm.validate = function (formObject) {
       const values = formObject.values;
+      
+      // If a preset is selected (not custom), it's always valid
+      if (values["preset"] && values["preset"].value !== "custom") {
+        return true;
+      }
+      
+      // For custom settings, validate as before
       const atLeastOneDateTypeSelected = values["shuffleDue"] || values["shuffleDefer"] || values["shuffleReview"];
       
       return (
@@ -131,6 +143,25 @@
     inputForm.show(formPrompt, buttonTitle).then((formObject) => {
       const values = formObject.values;
       
+      // Handle preset selections
+      if (values["preset"] && values["preset"].value !== "custom") {
+        const presetValue = values["preset"].value;
+        const [dateType, days] = presetValue.split("-");
+        const numDays = parseInt(days);
+        
+        // Configure date types based on preset
+        settings = {
+          shuffleDue: dateType === "due",
+          shuffleDefer: dateType === "defer", 
+          shuffleReview: dateType === "review"
+        };
+        
+        // Use preset date generator
+        shuffleDatesForSelection(selection, settings.shuffleDue, settings.shuffleDefer, settings.shuffleReview, () => getRandomDateInDays(numDays));
+        return;
+      }
+      
+      // Handle custom settings
       settings = {
         startDate: values["startDate"],
         endDate: values["endDate"],
@@ -150,30 +181,9 @@
   });
 
   // only run the action is there are tasks or projects selected
-  mainAction.validate = function (selection) {
+  action.validate = function (selection) {
     return !!selection.tasks.length || !!selection.projects.length;
   };
 
-  // Create pre-configured actions
-  const actions = [];
-  
-  // Add main action first
-  actions.push(mainAction);
-
-  // Due date actions
-  actions.push(createPreConfiguredAction("Shuffle Due Dates (7 days)", true, false, false, 7));
-  actions.push(createPreConfiguredAction("Shuffle Due Dates (14 days)", true, false, false, 14));
-  actions.push(createPreConfiguredAction("Shuffle Due Dates (30 days)", true, false, false, 30));
-
-  // Defer date actions
-  actions.push(createPreConfiguredAction("Shuffle Defer Dates (7 days)", false, true, false, 7));
-  actions.push(createPreConfiguredAction("Shuffle Defer Dates (14 days)", false, true, false, 14));
-  actions.push(createPreConfiguredAction("Shuffle Defer Dates (30 days)", false, true, false, 30));
-
-  // Review date actions
-  actions.push(createPreConfiguredAction("Shuffle Review Dates (7 days)", false, false, true, 7));
-  actions.push(createPreConfiguredAction("Shuffle Review Dates (14 days)", false, false, true, 14));
-  actions.push(createPreConfiguredAction("Shuffle Review Dates (30 days)", false, false, true, 30));
-
-  return actions;
+  return action;
 })();
