@@ -1,8 +1,8 @@
 {
-  "author": "George Mandis",
+  "author": "George Mandis, Matt Cable",
   "targets": ["omnifocus"],
   "type": "bundle",
-  "identifier": "ShuffleDates",
+  "identifier": "org.curiousstranger.ShuffleDates",
   "version": "0.5",
   "description": "A plug-in bundle that randomly assigns due, defer, and review dates to selected tasks and projects with customizable options and quick presets",
   "label": "Shuffle Dates",

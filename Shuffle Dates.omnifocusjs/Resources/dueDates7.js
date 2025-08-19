@@ -2,7 +2,7 @@
 
 (() => {
   // Load shared functions
-  eval(plugIn.library("shared.js"));
+  eval(this.plugIn.library("shared.js"));
   
   return createPresetAction(true, false, false, 7);
 })();
