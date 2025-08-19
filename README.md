@@ -1,19 +1,19 @@
 # Shuffle Dates for OmniFocus
 
-I made this OmniFocus plugin to assign random dates (due, defer, and review) to any selected tasks or projects for a configurable range of days out from today. With your task or project selected, you can either use the main **Automation > Shuffle Dates** action for full customization or choose from quick preset actions for common scenarios.
+I made this OmniFocus plugin bundle to assign random dates (due, defer, and review) to any selected tasks or projects for a configurable range of days out from today. The plugin includes 10 separate actions providing both full customization and quick preset options.
 
 ## Features
 
-**Two ways to shuffle dates:**
+**Ten separate actions for maximum flexibility:**
 
-### 1. Main Action: "Shuffle Dates" (Custom)
+### 1. Custom Action: "Shuffle Dates (Custom)"
 - Choose which date types to shuffle with checkboxes
 - Set custom date ranges (minimum and maximum dates)
 - Remember your preferences during the session
 - Full control over all options
 
-### 2. Quick Preset Actions
-For quick shuffling without forms, choose from:
+### 2. Quick Preset Actions (9 total)
+For instant shuffling without forms, choose from individual actions:
 
 **Due Date Presets:**
 - Shuffle Due Dates (7 days)
@@ -40,10 +40,31 @@ My goal was to replicate and expand upon the random "dice roll" date change opti
 Read more about automation and OmniFocus here:
 [https://omni-automation.com/omnifocus/](https://omni-automation.com/omnifocus)
 
-To install this just download the `.omnifocusjs` file and double-click it. It should open in OmniFocus automatically.
+To install this just download the `.omnifocusjs` bundle folder and double-click it. It should open in OmniFocus automatically and install 10 separate actions in your Automation menu.
+
+## Bundle Structure
+
+This plugin is now structured as an OmniFocus bundle with:
+- **manifest.json**: Defines the 10 actions and plugin metadata
+- **shared.js**: Common functions used across all actions
+- **custom.js**: The main customizable action with full form controls
+- **due-7.js, due-14.js, due-30.js**: Due date preset actions
+- **defer-7.js, defer-14.js, defer-30.js**: Defer date preset actions  
+- **review-7.js, review-14.js, review-30.js**: Review date preset actions
+
+Each preset action runs instantly without forms - just select your tasks/projects and run the action.
 
 
 ## Release Notes
+
+### 0.5
+
+Restructured plugin into a bundle format with separate actions:
+- 1 custom action with full form controls (preserves original behavior)
+- 9 individual preset actions (due/defer/review dates for 7/14/30 day periods)
+- Shared common code for maintainability
+- Each action appears separately in the Automation menu
+- No more dropdown selection needed - direct access to each function
 
 ### 0.4
 

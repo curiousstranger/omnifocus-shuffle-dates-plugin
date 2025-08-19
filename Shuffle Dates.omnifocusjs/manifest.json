@@ -1,0 +1,93 @@
+{
+  "author": "George Mandis",
+  "targets": ["omnifocus"],
+  "type": "bundle",
+  "identifier": "com.snaptortoise.ShuffleDates",
+  "version": "0.5",
+  "description": "A plug-in bundle that randomly assigns due, defer, and review dates to selected tasks and projects with customizable options and quick presets",
+  "label": "Shuffle Dates",
+  "mediumLabel": "Shuffle Dates",
+  "paletteLabel": "Shuffle Dates",
+  "actions": [
+    {
+      "identifier": "customShuffle",
+      "label": "Shuffle Dates (Custom)",
+      "mediumLabel": "Custom Shuffle",
+      "paletteLabel": "Custom",
+      "image": "shuffle",
+      "script": "custom.js"
+    },
+    {
+      "identifier": "dueDates7",
+      "label": "Shuffle Due Dates (7 days)",
+      "mediumLabel": "Due 7d",
+      "paletteLabel": "Due 7d",
+      "image": "calendar.badge.plus",
+      "script": "due-7.js"
+    },
+    {
+      "identifier": "dueDates14",
+      "label": "Shuffle Due Dates (14 days)",
+      "mediumLabel": "Due 14d",
+      "paletteLabel": "Due 14d",
+      "image": "calendar.badge.plus",
+      "script": "due-14.js"
+    },
+    {
+      "identifier": "dueDates30",
+      "label": "Shuffle Due Dates (30 days)",
+      "mediumLabel": "Due 30d",
+      "paletteLabel": "Due 30d",
+      "image": "calendar.badge.plus",
+      "script": "due-30.js"
+    },
+    {
+      "identifier": "deferDates7",
+      "label": "Shuffle Defer Dates (7 days)",
+      "mediumLabel": "Defer 7d",
+      "paletteLabel": "Defer 7d",
+      "image": "calendar.badge.clock",
+      "script": "defer-7.js"
+    },
+    {
+      "identifier": "deferDates14",
+      "label": "Shuffle Defer Dates (14 days)",
+      "mediumLabel": "Defer 14d",
+      "paletteLabel": "Defer 14d",
+      "image": "calendar.badge.clock",
+      "script": "defer-14.js"
+    },
+    {
+      "identifier": "deferDates30",
+      "label": "Shuffle Defer Dates (30 days)",
+      "mediumLabel": "Defer 30d",
+      "paletteLabel": "Defer 30d",
+      "image": "calendar.badge.clock",
+      "script": "defer-30.js"
+    },
+    {
+      "identifier": "reviewDates7",
+      "label": "Shuffle Review Dates (7 days)",
+      "mediumLabel": "Review 7d",
+      "paletteLabel": "Review 7d",
+      "image": "calendar.badge.checkmark",
+      "script": "review-7.js"
+    },
+    {
+      "identifier": "reviewDates14",
+      "label": "Shuffle Review Dates (14 days)",
+      "mediumLabel": "Review 14d",
+      "paletteLabel": "Review 14d",
+      "image": "calendar.badge.checkmark",
+      "script": "review-14.js"
+    },
+    {
+      "identifier": "reviewDates30",
+      "label": "Shuffle Review Dates (30 days)",
+      "mediumLabel": "Review 30d",
+      "paletteLabel": "Review 30d",
+      "image": "calendar.badge.checkmark",
+      "script": "review-30.js"
+    }
+  ]
+}
