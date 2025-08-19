@@ -106,7 +106,7 @@
           project.deferDate = newRandomDate();
         }
         if (settings.shuffleReview) {
-          project.reviewDate = newRandomDate();
+          project.nextReviewDate = newRandomDate();
         }
       });
     });
