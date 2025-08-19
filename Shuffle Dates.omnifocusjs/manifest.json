@@ -15,7 +15,7 @@
       "mediumLabel": "Custom Shuffle",
       "paletteLabel": "Custom",
       "image": "shuffle",
-      "script": "custom.js"
+      "script": "Resources/custom.js"
     },
     {
       "identifier": "dueDates7",
@@ -23,7 +23,7 @@
       "mediumLabel": "Due 7d",
       "paletteLabel": "Due 7d",
       "image": "calendar.badge.plus",
-      "script": "due-7.js"
+      "script": "Resources/due-7.js"
     },
     {
       "identifier": "dueDates14",
@@ -31,7 +31,7 @@
       "mediumLabel": "Due 14d",
       "paletteLabel": "Due 14d",
       "image": "calendar.badge.plus",
-      "script": "due-14.js"
+      "script": "Resources/due-14.js"
     },
     {
       "identifier": "dueDates30",
@@ -39,7 +39,7 @@
       "mediumLabel": "Due 30d",
       "paletteLabel": "Due 30d",
       "image": "calendar.badge.plus",
-      "script": "due-30.js"
+      "script": "Resources/due-30.js"
     },
     {
       "identifier": "deferDates7",
@@ -47,7 +47,7 @@
       "mediumLabel": "Defer 7d",
       "paletteLabel": "Defer 7d",
       "image": "calendar.badge.clock",
-      "script": "defer-7.js"
+      "script": "Resources/defer-7.js"
     },
     {
       "identifier": "deferDates14",
@@ -55,7 +55,7 @@
       "mediumLabel": "Defer 14d",
       "paletteLabel": "Defer 14d",
       "image": "calendar.badge.clock",
-      "script": "defer-14.js"
+      "script": "Resources/defer-14.js"
     },
     {
       "identifier": "deferDates30",
@@ -63,7 +63,7 @@
       "mediumLabel": "Defer 30d",
       "paletteLabel": "Defer 30d",
       "image": "calendar.badge.clock",
-      "script": "defer-30.js"
+      "script": "Resources/defer-30.js"
     },
     {
       "identifier": "reviewDates7",
@@ -71,7 +71,7 @@
       "mediumLabel": "Review 7d",
       "paletteLabel": "Review 7d",
       "image": "calendar.badge.checkmark",
-      "script": "review-7.js"
+      "script": "Resources/review-7.js"
     },
     {
       "identifier": "reviewDates14",
@@ -79,7 +79,7 @@
       "mediumLabel": "Review 14d",
       "paletteLabel": "Review 14d",
       "image": "calendar.badge.checkmark",
-      "script": "review-14.js"
+      "script": "Resources/review-14.js"
     },
     {
       "identifier": "reviewDates30",
@@ -87,7 +87,7 @@
       "mediumLabel": "Review 30d",
       "paletteLabel": "Review 30d",
       "image": "calendar.badge.checkmark",
-      "script": "review-30.js"
+      "script": "Resources/review-30.js"
     }
   ]
 }
