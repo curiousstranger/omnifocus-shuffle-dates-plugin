@@ -3,137 +3,59 @@
   "targets": ["omnifocus"],
   "type": "bundle",
   "identifier": "org.curiousstranger.ShuffleDates",
-  "name": "Shuffle Dates",
   "version": "0.5",
   "defaultLocale": "en",
   "description": "A plug-in bundle that randomly assigns due, defer, and review dates to selected tasks and projects with customizable options and quick presets",
-  "locales": {
-    "en": {
-      "label": "Shuffle Dates",
-      "mediumLabel": "Shuffle Dates",
-      "paletteLabel": "Shuffle Dates"
-    }
-  },
   "actions": [
     {
       "identifier": "customShuffle",
       "image": "shuffle",
-      "script": "customShuffle.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Dates (Custom)",
-          "mediumLabel": "Custom Shuffle",
-          "paletteLabel": "Custom"
-        }
-      }
+      "script": "customShuffle.js"
     },
     {
       "identifier": "dueDates7",
       "image": "calendar.badge.plus",
-      "script": "dueDates7.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Due Dates Over 7 Days",
-          "mediumLabel": "Due 7d",
-          "paletteLabel": "Due 7d"
-        }
-      }
+      "script": "dueDates7.js"
     },
     {
       "identifier": "dueDates14",
       "image": "calendar.badge.plus",
-      "script": "dueDates14.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Due Dates Over 14 Days",
-          "mediumLabel": "Due 14d",
-          "paletteLabel": "Due 14d"
-        }
-      }
+      "script": "dueDates14.js"
     },
     {
       "identifier": "dueDates30",
       "image": "calendar.badge.plus",
-      "script": "dueDates30.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Due Dates Over 30 Days",
-          "mediumLabel": "Due 30d",
-          "paletteLabel": "Due 30d"
-        }
-      }
+      "script": "dueDates30.js"
     },
     {
       "identifier": "deferDates7",
       "image": "calendar.badge.clock",
-      "script": "deferDates7.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Defer Dates Over 7 Days",
-          "mediumLabel": "Defer 7d",
-          "paletteLabel": "Defer 7d"
-        }
-      }
+      "script": "deferDates7.js"
     },
     {
       "identifier": "deferDates14",
       "image": "calendar.badge.clock",
-      "script": "deferDates14.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Defer Dates Over 14 Days",
-          "mediumLabel": "Defer 14d",
-          "paletteLabel": "Defer 14d"
-        }
-      }
+      "script": "deferDates14.js"
     },
     {
       "identifier": "deferDates30",
       "image": "calendar.badge.clock",
-      "script": "deferDates30.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Defer Dates Over 30 Days",
-          "mediumLabel": "Defer 30d",
-          "paletteLabel": "Defer 30d"
-        }
-      }
+      "script": "deferDates30.js"
     },
     {
       "identifier": "reviewDates7",
       "image": "calendar.badge.checkmark",
-      "script": "reviewDates7.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Review Dates Over 7 Days",
-          "mediumLabel": "Review 7d",
-          "paletteLabel": "Review 7d"
-        }
-      }
+      "script": "reviewDates7.js"
     },
     {
       "identifier": "reviewDates14",
       "image": "calendar.badge.checkmark",
-      "script": "reviewDates14.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Review Dates Over 14 Days",
-          "mediumLabel": "Review 14d",
-          "paletteLabel": "Review 14d"
-        }
-      }
+      "script": "reviewDates14.js"
     },
     {
       "identifier": "reviewDates30",
       "image": "calendar.badge.checkmark",
-      "script": "reviewDates30.js",
-      "locales": {
-        "en": {
-          "label": "Shuffle Review Dates Over 30 Days",
-          "mediumLabel": "Review 30d",
-          "paletteLabel": "Review 30d"
-        }
-      }
+      "script": "reviewDates30.js"
     }
   ]
 }

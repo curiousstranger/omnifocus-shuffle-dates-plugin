@@ -1,0 +1,48 @@
+/* Plugin Bundle Labels */
+"label" = "Shuffle Dates";
+"mediumLabel" = "Shuffle Dates";
+"paletteLabel" = "Shuffle Dates";
+
+/* Custom Shuffle Action */
+"customShuffle.label" = "Shuffle Dates (Custom)";
+"customShuffle.mediumLabel" = "Custom Shuffle";
+"customShuffle.paletteLabel" = "Custom";
+
+/* Due Date Actions */
+"dueDates7.label" = "Shuffle Due Dates Over 7 Days";
+"dueDates7.mediumLabel" = "Due 7d";
+"dueDates7.paletteLabel" = "Due 7d";
+
+"dueDates14.label" = "Shuffle Due Dates Over 14 Days";
+"dueDates14.mediumLabel" = "Due 14d";
+"dueDates14.paletteLabel" = "Due 14d";
+
+"dueDates30.label" = "Shuffle Due Dates Over 30 Days";
+"dueDates30.mediumLabel" = "Due 30d";
+"dueDates30.paletteLabel" = "Due 30d";
+
+/* Defer Date Actions */
+"deferDates7.label" = "Shuffle Defer Dates Over 7 Days";
+"deferDates7.mediumLabel" = "Defer 7d";
+"deferDates7.paletteLabel" = "Defer 7d";
+
+"deferDates14.label" = "Shuffle Defer Dates Over 14 Days";
+"deferDates14.mediumLabel" = "Defer 14d";
+"deferDates14.paletteLabel" = "Defer 14d";
+
+"deferDates30.label" = "Shuffle Defer Dates Over 30 Days";
+"deferDates30.mediumLabel" = "Defer 30d";
+"deferDates30.paletteLabel" = "Defer 30d";
+
+/* Review Date Actions */
+"reviewDates7.label" = "Shuffle Review Dates Over 7 Days";
+"reviewDates7.mediumLabel" = "Review 7d";
+"reviewDates7.paletteLabel" = "Review 7d";
+
+"reviewDates14.label" = "Shuffle Review Dates Over 14 Days";
+"reviewDates14.mediumLabel" = "Review 14d";
+"reviewDates14.paletteLabel" = "Review 14d";
+
+"reviewDates30.label" = "Shuffle Review Dates Over 30 Days";
+"reviewDates30.mediumLabel" = "Review 30d";
+"reviewDates30.paletteLabel" = "Review 30d";
