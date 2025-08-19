@@ -7,89 +7,133 @@
   "version": "0.5",
   "defaultLocale": "en",
   "description": "A plug-in bundle that randomly assigns due, defer, and review dates to selected tasks and projects with customizable options and quick presets",
-  "label": "Shuffle Dates",
-  "mediumLabel": "Shuffle Dates",
-  "paletteLabel": "Shuffle Dates",
+  "locales": {
+    "en": {
+      "label": "Shuffle Dates",
+      "mediumLabel": "Shuffle Dates",
+      "paletteLabel": "Shuffle Dates"
+    }
+  },
   "actions": [
     {
       "identifier": "customShuffle",
-      "label": "Shuffle Dates (Custom)",
-      "mediumLabel": "Custom Shuffle",
-      "paletteLabel": "Custom",
       "image": "shuffle",
-      "script": "customShuffle.js"
+      "script": "customShuffle.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Dates (Custom)",
+          "mediumLabel": "Custom Shuffle",
+          "paletteLabel": "Custom"
+        }
+      }
     },
     {
       "identifier": "dueDates7",
-      "label": "Shuffle Due Dates Over 7 Days",
-      "mediumLabel": "Due 7d",
-      "paletteLabel": "Due 7d",
       "image": "calendar.badge.plus",
-      "script": "dueDates7.js"
+      "script": "dueDates7.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Due Dates Over 7 Days",
+          "mediumLabel": "Due 7d",
+          "paletteLabel": "Due 7d"
+        }
+      }
     },
     {
       "identifier": "dueDates14",
-      "label": "Shuffle Due Dates Over 14 Days",
-      "mediumLabel": "Due 14d",
-      "paletteLabel": "Due 14d",
       "image": "calendar.badge.plus",
-      "script": "dueDates14.js"
+      "script": "dueDates14.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Due Dates Over 14 Days",
+          "mediumLabel": "Due 14d",
+          "paletteLabel": "Due 14d"
+        }
+      }
     },
     {
       "identifier": "dueDates30",
-      "label": "Shuffle Due Dates Over 30 Days",
-      "mediumLabel": "Due 30d",
-      "paletteLabel": "Due 30d",
       "image": "calendar.badge.plus",
-      "script": "dueDates30.js"
+      "script": "dueDates30.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Due Dates Over 30 Days",
+          "mediumLabel": "Due 30d",
+          "paletteLabel": "Due 30d"
+        }
+      }
     },
     {
       "identifier": "deferDates7",
-      "label": "Shuffle Defer Dates Over 7 Days",
-      "mediumLabel": "Defer 7d",
-      "paletteLabel": "Defer 7d",
       "image": "calendar.badge.clock",
-      "script": "deferDates7.js"
+      "script": "deferDates7.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Defer Dates Over 7 Days",
+          "mediumLabel": "Defer 7d",
+          "paletteLabel": "Defer 7d"
+        }
+      }
     },
     {
       "identifier": "deferDates14",
-      "label": "Shuffle Defer Dates Over 14 Days",
-      "mediumLabel": "Defer 14d",
-      "paletteLabel": "Defer 14d",
       "image": "calendar.badge.clock",
-      "script": "deferDates14.js"
+      "script": "deferDates14.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Defer Dates Over 14 Days",
+          "mediumLabel": "Defer 14d",
+          "paletteLabel": "Defer 14d"
+        }
+      }
     },
     {
       "identifier": "deferDates30",
-      "label": "Shuffle Defer Dates Over 30 Days",
-      "mediumLabel": "Defer 30d",
-      "paletteLabel": "Defer 30d",
       "image": "calendar.badge.clock",
-      "script": "deferDates30.js"
+      "script": "deferDates30.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Defer Dates Over 30 Days",
+          "mediumLabel": "Defer 30d",
+          "paletteLabel": "Defer 30d"
+        }
+      }
     },
     {
       "identifier": "reviewDates7",
-      "label": "Shuffle Review Dates Over 7 Days",
-      "mediumLabel": "Review 7d",
-      "paletteLabel": "Review 7d",
       "image": "calendar.badge.checkmark",
-      "script": "reviewDates7.js"
+      "script": "reviewDates7.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Review Dates Over 7 Days",
+          "mediumLabel": "Review 7d",
+          "paletteLabel": "Review 7d"
+        }
+      }
     },
     {
       "identifier": "reviewDates14",
-      "label": "Shuffle Review Dates Over 14 Days",
-      "mediumLabel": "Review 14d",
-      "paletteLabel": "Review 14d",
       "image": "calendar.badge.checkmark",
-      "script": "reviewDates14.js"
+      "script": "reviewDates14.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Review Dates Over 14 Days",
+          "mediumLabel": "Review 14d",
+          "paletteLabel": "Review 14d"
+        }
+      }
     },
     {
       "identifier": "reviewDates30",
-      "label": "Shuffle Review Dates Over 30 Days",
-      "mediumLabel": "Review 30d",
-      "paletteLabel": "Review 30d",
       "image": "calendar.badge.checkmark",
-      "script": "reviewDates30.js"
+      "script": "reviewDates30.js",
+      "locales": {
+        "en": {
+          "label": "Shuffle Review Dates Over 30 Days",
+          "mediumLabel": "Review 30d",
+          "paletteLabel": "Review 30d"
+        }
+      }
     }
   ]
 }
