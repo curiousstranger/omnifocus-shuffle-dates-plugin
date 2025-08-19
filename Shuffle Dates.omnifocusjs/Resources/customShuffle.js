@@ -2,7 +2,7 @@
 
 (() => {
   // Load shared functions
-  eval(this.plugIn.library("shared.js"));
+  eval(plugIn.library("shared.js"));
   
   // store end/start date and date type selections here to remember previous choices
   let settings = {};

@@ -2,7 +2,7 @@
   "author": "George Mandis",
   "targets": ["omnifocus"],
   "type": "bundle",
-  "identifier": "com.snaptortoise.ShuffleDates",
+  "identifier": "ShuffleDates",
   "version": "0.5",
   "description": "A plug-in bundle that randomly assigns due, defer, and review dates to selected tasks and projects with customizable options and quick presets",
   "label": "Shuffle Dates",
@@ -19,7 +19,7 @@
     },
     {
       "identifier": "dueDates7",
-      "label": "Shuffle Due Dates (7 days)",
+      "label": "Shuffle Due Dates Over 7 Days",
       "mediumLabel": "Due 7d",
       "paletteLabel": "Due 7d",
       "image": "calendar.badge.plus",
@@ -27,7 +27,7 @@
     },
     {
       "identifier": "dueDates14",
-      "label": "Shuffle Due Dates (14 days)",
+      "label": "Shuffle Due Dates Over 14 Days",
       "mediumLabel": "Due 14d",
       "paletteLabel": "Due 14d",
       "image": "calendar.badge.plus",
@@ -35,7 +35,7 @@
     },
     {
       "identifier": "dueDates30",
-      "label": "Shuffle Due Dates (30 days)",
+      "label": "Shuffle Due Dates Over 30 Days",
       "mediumLabel": "Due 30d",
       "paletteLabel": "Due 30d",
       "image": "calendar.badge.plus",
@@ -43,7 +43,7 @@
     },
     {
       "identifier": "deferDates7",
-      "label": "Shuffle Defer Dates (7 days)",
+      "label": "Shuffle Defer Dates Over 7 Days",
       "mediumLabel": "Defer 7d",
       "paletteLabel": "Defer 7d",
       "image": "calendar.badge.clock",
@@ -51,7 +51,7 @@
     },
     {
       "identifier": "deferDates14",
-      "label": "Shuffle Defer Dates (14 days)",
+      "label": "Shuffle Defer Dates Over 14 Days",
       "mediumLabel": "Defer 14d",
       "paletteLabel": "Defer 14d",
       "image": "calendar.badge.clock",
@@ -59,7 +59,7 @@
     },
     {
       "identifier": "deferDates30",
-      "label": "Shuffle Defer Dates (30 days)",
+      "label": "Shuffle Defer Dates Over 30 Days",
       "mediumLabel": "Defer 30d",
       "paletteLabel": "Defer 30d",
       "image": "calendar.badge.clock",
@@ -67,7 +67,7 @@
     },
     {
       "identifier": "reviewDates7",
-      "label": "Shuffle Review Dates (7 days)",
+      "label": "Shuffle Review Dates Over 7 Days",
       "mediumLabel": "Review 7d",
       "paletteLabel": "Review 7d",
       "image": "calendar.badge.checkmark",
@@ -75,7 +75,7 @@
     },
     {
       "identifier": "reviewDates14",
-      "label": "Shuffle Review Dates (14 days)",
+      "label": "Shuffle Review Dates Over 14 Days",
       "mediumLabel": "Review 14d",
       "paletteLabel": "Review 14d",
       "image": "calendar.badge.checkmark",
@@ -83,7 +83,7 @@
     },
     {
       "identifier": "reviewDates30",
-      "label": "Shuffle Review Dates (30 days)",
+      "label": "Shuffle Review Dates Over 30 Days",
       "mediumLabel": "Review 30d",
       "paletteLabel": "Review 30d",
       "image": "calendar.badge.checkmark",
