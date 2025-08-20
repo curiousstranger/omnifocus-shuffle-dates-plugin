@@ -1,10 +1,10 @@
 // shuffleDatesLibrary.js - Shared library for OmniFocus Shuffle Dates plugin
 
 // Create the library instance
-const library = new PlugIn.Library(new Version("1.0"));
+const shuffleDatesLib = new PlugIn.Library(new Version("1.0"));
 
 // Helper function to create a random date within a given number of days from now
-library.getRandomDateInDays = (days) => {
+shuffleDatesLib.getRandomDateInDays = (days) => {
   const startDate = new Date();
   const endDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * days);
   const range = endDate - startDate;
@@ -12,13 +12,13 @@ library.getRandomDateInDays = (days) => {
 };
 
 // Helper function to create a random date between two dates
-library.getRandomDateBetween = (startDate, endDate) => {
+shuffleDatesLib.getRandomDateBetween = (startDate, endDate) => {
   const range = endDate - startDate;
   return new Date(startDate.getTime() + Math.random() * range);
 };
 
 // Helper function to convert reviewInterval units to days
-library.convertReviewIntervalToDays = (reviewInterval) => {
+shuffleDatesLib.convertReviewIntervalToDays = (reviewInterval) => {
   if (!reviewInterval || !reviewInterval.steps || !reviewInterval.unit) {
     return 7; // default fallback
   }
@@ -46,8 +46,8 @@ library.convertReviewIntervalToDays = (reviewInterval) => {
 
 // Helper function to create a random date within a project's review interval,
 // respecting both the project's review interval and the custom date range
-library.getRandomDateForProject = (project, startDate, endDate) => {
-  const intervalDays = library.convertReviewIntervalToDays(project.reviewInterval);
+shuffleDatesLib.getRandomDateForProject = (project, startDate, endDate) => {
+  const intervalDays = shuffleDatesLib.convertReviewIntervalToDays(project.reviewInterval);
   const maxEndDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * intervalDays);
   const effectiveEndDate = endDate < maxEndDate ? endDate : maxEndDate;
   const range = effectiveEndDate - startDate;
@@ -55,14 +55,14 @@ library.getRandomDateForProject = (project, startDate, endDate) => {
 };
 
 // Helper function for preset actions - simpler version respecting review interval
-library.getRandomDateForProjectPreset = (project, maxDays) => {
-  const intervalDays = library.convertReviewIntervalToDays(project.reviewInterval);
+shuffleDatesLib.getRandomDateForProjectPreset = (project, maxDays) => {
+  const intervalDays = shuffleDatesLib.convertReviewIntervalToDays(project.reviewInterval);
   const effectiveDays = Math.min(intervalDays, maxDays);
-  return library.getRandomDateInDays(effectiveDays);
+  return shuffleDatesLib.getRandomDateInDays(effectiveDays);
 };
 
 // Helper function to shuffle dates for selection with specific settings
-library.shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator, customStartDate, customEndDate, maxDays) => {
+shuffleDatesLib.shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator, customStartDate, customEndDate, maxDays) => {
   // change dates for each task
   selection.tasks.forEach((task) => {
     if (shuffleDue) {
@@ -85,10 +85,10 @@ library.shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffle
     if (shuffleReview) {
       if (customStartDate && customEndDate) {
         // For custom shuffle - use the custom range but respect review interval
-        project.nextReviewDate = library.getRandomDateForProject(project, customStartDate, customEndDate);
+        project.nextReviewDate = shuffleDatesLib.getRandomDateForProject(project, customStartDate, customEndDate);
       } else if (maxDays) {
         // For preset actions - use the simpler logic
-        project.nextReviewDate = library.getRandomDateForProjectPreset(project, maxDays);
+        project.nextReviewDate = shuffleDatesLib.getRandomDateForProjectPreset(project, maxDays);
       } else {
         // Fallback to simple date generator
         project.nextReviewDate = dateGenerator();
@@ -98,28 +98,28 @@ library.shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffle
 };
 
 // Common validation function to ensure there are selected tasks or projects
-library.validateSelection = (selection) => {
+shuffleDatesLib.validateSelection = (selection) => {
   return !!selection.tasks.length || !!selection.projects.length;
 };
 
 // Create a preset action with given parameters
-library.createPresetAction = (shuffleDue, shuffleDefer, shuffleReview, days) => {
+shuffleDatesLib.createPresetAction = (shuffleDue, shuffleDefer, shuffleReview, days) => {
   const action = new PlugIn.Action(function (selection) {
-    library.shuffleDatesForSelection(
+    shuffleDatesLib.shuffleDatesForSelection(
       selection, 
       shuffleDue, 
       shuffleDefer, 
       shuffleReview, 
-      () => library.getRandomDateInDays(days),
+      () => shuffleDatesLib.getRandomDateInDays(days),
       null, // customStartDate
       null, // customEndDate
       days  // maxDays for review interval logic
     );
   });
 
-  action.validate = library.validateSelection;
+  action.validate = shuffleDatesLib.validateSelection;
   return action;
 };
 
 // The script should evaluate to the library instance
-library;
+shuffleDatesLib;
