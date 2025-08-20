@@ -17,8 +17,45 @@
     return new Date(startDate.getTime() + Math.random() * range);
   };
 
+  // Helper function to convert reviewInterval units to days
+  const convertReviewIntervalToDays = (reviewInterval) => {
+    if (!reviewInterval || !reviewInterval.steps || !reviewInterval.unit) {
+      return 7; // default fallback
+    }
+    
+    const steps = reviewInterval.steps;
+    const unit = reviewInterval.unit.toLowerCase();
+    
+    switch (unit) {
+      case 'days':
+      case 'day':
+        return steps;
+      case 'weeks':
+      case 'week':
+        return steps * 7;
+      case 'months':
+      case 'month':
+        return steps * 30; // approximate
+      case 'years':
+      case 'year':
+        return steps * 365; // approximate
+      default:
+        return 7; // default fallback
+    }
+  };
+
+  // Helper function to create a random date within a project's review interval,
+  // respecting both the project's review interval and the custom date range
+  const getRandomDateForProject = (project, startDate, endDate) => {
+    const intervalDays = convertReviewIntervalToDays(project.reviewInterval);
+    const maxEndDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * intervalDays);
+    const effectiveEndDate = endDate < maxEndDate ? endDate : maxEndDate;
+    const range = effectiveEndDate - startDate;
+    return new Date(startDate.getTime() + Math.random() * range);
+  };
+
   // Helper function to shuffle dates for selection with specific settings
-  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator) => {
+  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator, customStartDate, customEndDate) => {
     // change dates for each task
     selection.tasks.forEach((task) => {
       if (shuffleDue) {
@@ -39,7 +76,7 @@
         project.deferDate = dateGenerator();
       }
       if (shuffleReview) {
-        project.nextReviewDate = dateGenerator();
+        project.nextReviewDate = getRandomDateForProject(project, customStartDate, customEndDate);
       }
     });
   };
@@ -127,7 +164,7 @@
       // method to return random date between min and max dates stored in settings
       const newRandomDate = () => getRandomDateBetween(settings.startDate, settings.endDate);
 
-      shuffleDatesForSelection(selection, settings.shuffleDue, settings.shuffleDefer, settings.shuffleReview, newRandomDate);
+      shuffleDatesForSelection(selection, settings.shuffleDue, settings.shuffleDefer, settings.shuffleReview, newRandomDate, settings.startDate, settings.endDate);
     });
   });
 

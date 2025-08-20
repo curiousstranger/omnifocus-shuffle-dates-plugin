@@ -11,8 +11,43 @@
     return new Date(startDate.getTime() + Math.random() * range);
   };
 
+  // Helper function to convert reviewInterval units to days
+  const convertReviewIntervalToDays = (reviewInterval) => {
+    if (!reviewInterval || !reviewInterval.steps || !reviewInterval.unit) {
+      return 7; // default fallback
+    }
+    
+    const steps = reviewInterval.steps;
+    const unit = reviewInterval.unit.toLowerCase();
+    
+    switch (unit) {
+      case 'days':
+      case 'day':
+        return steps;
+      case 'weeks':
+      case 'week':
+        return steps * 7;
+      case 'months':
+      case 'month':
+        return steps * 30; // approximate
+      case 'years':
+      case 'year':
+        return steps * 365; // approximate
+      default:
+        return 7; // default fallback
+    }
+  };
+
+  // Helper function to create a random date within a project's review interval, 
+  // respecting both the project's review interval and the requested shuffling window
+  const getRandomDateForProject = (project, maxDays) => {
+    const intervalDays = convertReviewIntervalToDays(project.reviewInterval);
+    const effectiveDays = Math.min(intervalDays, maxDays);
+    return getRandomDateInDays(effectiveDays);
+  };
+
   // Helper function to shuffle dates for selection with specific settings
-  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator) => {
+  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator, maxDays) => {
     // change dates for each task
     selection.tasks.forEach((task) => {
       if (shuffleDue) {
@@ -33,7 +68,7 @@
         project.deferDate = dateGenerator();
       }
       if (shuffleReview) {
-        project.nextReviewDate = dateGenerator();
+        project.nextReviewDate = getRandomDateForProject(project, maxDays);
       }
     });
   };
@@ -51,7 +86,8 @@
         shuffleDue, 
         shuffleDefer, 
         shuffleReview, 
-        () => getRandomDateInDays(days)
+        () => getRandomDateInDays(days),
+        days
       );
     });
 
