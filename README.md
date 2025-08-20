@@ -47,13 +47,14 @@ To install this just download the `.omnifocusjs` bundle folder and double-click 
 This plugin is now structured as an OmniFocus bundle with:
 - **manifest.json**: Defines the 10 actions and plugin metadata
 - **Resources/**: Contains all the JavaScript action files
+  - **library.js**: Shared utility functions used by all actions
   - **customShuffle.js**: The main customizable action with full form controls
   - **dueDates7.js, dueDates14.js, dueDates30.js**: Due date preset actions
   - **deferDates7.js, deferDates14.js, deferDates30.js**: Defer date preset actions  
   - **reviewDates7.js, reviewDates14.js, reviewDates30.js**: Review date preset actions
   - **en.lproj/**: Localization resources
 
-Each action file contains its own copy of the shared utility functions to avoid library loading issues. Each preset action runs instantly without forms - just select your tasks/projects and run the action.
+The shared library system eliminates code duplication across action files while maintaining reliability. Each preset action runs instantly without forms - just select your tasks/projects and run the action.
 
 
 ## Release Notes
@@ -63,7 +64,7 @@ Each action file contains its own copy of the shared utility functions to avoid 
 Restructured plugin into a bundle format with separate actions:
 - 1 custom action with full form controls (preserves original behavior)
 - 9 individual preset actions (due/defer/review dates for 7/14/30 day periods)
-- Each action file contains its own utility functions for reliability
+- Shared library system eliminates code duplication while maintaining reliability
 - Each action appears separately in the Automation menu
 - No more dropdown selection needed - direct access to each function
 
