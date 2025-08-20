@@ -38,14 +38,16 @@
     }
   };
 
-  // Helper function to create a random date within a project's review interval
-  const getRandomDateForProject = (project) => {
+  // Helper function to create a random date within a project's review interval, 
+  // respecting both the project's review interval and the requested shuffling window
+  const getRandomDateForProject = (project, maxDays) => {
     const intervalDays = convertReviewIntervalToDays(project.reviewInterval);
-    return getRandomDateInDays(intervalDays);
+    const effectiveDays = Math.min(intervalDays, maxDays);
+    return getRandomDateInDays(effectiveDays);
   };
 
   // Helper function to shuffle dates for selection with specific settings
-  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator) => {
+  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator, maxDays) => {
     // change dates for each task
     selection.tasks.forEach((task) => {
       if (shuffleDue) {
@@ -66,7 +68,7 @@
         project.deferDate = dateGenerator();
       }
       if (shuffleReview) {
-        project.nextReviewDate = getRandomDateForProject(project);
+        project.nextReviewDate = getRandomDateForProject(project, maxDays);
       }
     });
   };
@@ -84,7 +86,8 @@
         shuffleDue, 
         shuffleDefer, 
         shuffleReview, 
-        () => getRandomDateInDays(days)
+        () => getRandomDateInDays(days),
+        days
       );
     });
 

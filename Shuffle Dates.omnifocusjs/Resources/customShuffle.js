@@ -44,17 +44,18 @@
     }
   };
 
-  // Helper function to create a random date within a project's review interval
-  const getRandomDateForProject = (project) => {
+  // Helper function to create a random date within a project's review interval,
+  // respecting both the project's review interval and the custom date range
+  const getRandomDateForProject = (project, startDate, endDate) => {
     const intervalDays = convertReviewIntervalToDays(project.reviewInterval);
-    const startDate = new Date();
-    const endDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * intervalDays);
-    const range = endDate - startDate;
+    const maxEndDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * intervalDays);
+    const effectiveEndDate = endDate < maxEndDate ? endDate : maxEndDate;
+    const range = effectiveEndDate - startDate;
     return new Date(startDate.getTime() + Math.random() * range);
   };
 
   // Helper function to shuffle dates for selection with specific settings
-  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator) => {
+  const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator, customStartDate, customEndDate) => {
     // change dates for each task
     selection.tasks.forEach((task) => {
       if (shuffleDue) {
@@ -75,7 +76,7 @@
         project.deferDate = dateGenerator();
       }
       if (shuffleReview) {
-        project.nextReviewDate = getRandomDateForProject(project);
+        project.nextReviewDate = getRandomDateForProject(project, customStartDate, customEndDate);
       }
     });
   };
@@ -163,7 +164,7 @@
       // method to return random date between min and max dates stored in settings
       const newRandomDate = () => getRandomDateBetween(settings.startDate, settings.endDate);
 
-      shuffleDatesForSelection(selection, settings.shuffleDue, settings.shuffleDefer, settings.shuffleReview, newRandomDate);
+      shuffleDatesForSelection(selection, settings.shuffleDue, settings.shuffleDefer, settings.shuffleReview, newRandomDate, settings.startDate, settings.endDate);
     });
   });
 
