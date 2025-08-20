@@ -19,6 +19,20 @@ Always reference these instructions first and fallback to search or bash command
 - Create basic ESLint config: `echo 'export default [{ files: ["**/*.js"], rules: {} }];' > eslint.config.js`
 - Run ESLint: `npx eslint "Shuffle Dates.omnifocusjs/Resources/filename.js"` -- takes 1-2 seconds per file. NEVER CANCEL.
 
+### OmniAutomation API Reference
+- **ALWAYS use official documentation**: When writing OmniAutomation-specific code, reference the official documentation at https://omni-automation.com/plugins/ rather than guessing at API methods and properties.
+- **Core OmniAutomation concepts**: The plugin uses OmniAutomation APIs to interact with OmniFocus objects like `Task`, `Project`, `Selection`, and `Form`.
+- **Key API patterns in this plugin**:
+  - `selection.tasks` and `selection.projects` - access selected items
+  - `task.dueDate`, `task.deferDate` - task date properties
+  - `project.dueDate`, `project.deferDate`, `project.nextReviewDate` - project date properties
+  - `new Form()` - create user input forms for the custom action
+- **Documentation sections to reference**:
+  - Plugin architecture and manifest structure
+  - Task and Project object APIs
+  - Selection APIs for working with user-selected items
+  - Form APIs for creating user interfaces
+
 ### Plugin Testing and Installation
 - **CRITICAL**: This plugin can only be fully tested within OmniFocus application itself.
 - To install: Double-click the "Shuffle Dates.omnifocusjs" bundle folder in macOS. It will open OmniFocus and install the plugin.
