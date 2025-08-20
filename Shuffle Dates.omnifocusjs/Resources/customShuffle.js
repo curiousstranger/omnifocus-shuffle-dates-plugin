@@ -17,6 +17,42 @@
     return new Date(startDate.getTime() + Math.random() * range);
   };
 
+  // Helper function to convert reviewInterval units to days
+  const convertReviewIntervalToDays = (reviewInterval) => {
+    if (!reviewInterval || !reviewInterval.steps || !reviewInterval.unit) {
+      return 7; // default fallback
+    }
+    
+    const steps = reviewInterval.steps;
+    const unit = reviewInterval.unit.toLowerCase();
+    
+    switch (unit) {
+      case 'days':
+      case 'day':
+        return steps;
+      case 'weeks':
+      case 'week':
+        return steps * 7;
+      case 'months':
+      case 'month':
+        return steps * 30; // approximate
+      case 'years':
+      case 'year':
+        return steps * 365; // approximate
+      default:
+        return 7; // default fallback
+    }
+  };
+
+  // Helper function to create a random date within a project's review interval
+  const getRandomDateForProject = (project) => {
+    const intervalDays = convertReviewIntervalToDays(project.reviewInterval);
+    const startDate = new Date();
+    const endDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * intervalDays);
+    const range = endDate - startDate;
+    return new Date(startDate.getTime() + Math.random() * range);
+  };
+
   // Helper function to shuffle dates for selection with specific settings
   const shuffleDatesForSelection = (selection, shuffleDue, shuffleDefer, shuffleReview, dateGenerator) => {
     // change dates for each task
@@ -39,7 +75,7 @@
         project.deferDate = dateGenerator();
       }
       if (shuffleReview) {
-        project.nextReviewDate = dateGenerator();
+        project.nextReviewDate = getRandomDateForProject(project);
       }
     });
   };
