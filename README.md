@@ -53,7 +53,7 @@ This plugin is now structured as an OmniFocus bundle with:
   - **reviewDates7.js, reviewDates14.js, reviewDates30.js**: Review date preset actions
   - **en.lproj/**: Localization resources
 
-Each action file contains its own utility functions to ensure compatibility with OmniFocus's plugin system. Each preset action runs instantly without forms - just select your tasks/projects and run the action.
+Each preset action runs instantly without forms - just select your tasks/projects and run the action.
 
 
 ## Release Notes
@@ -63,7 +63,6 @@ Each action file contains its own utility functions to ensure compatibility with
 Restructured plugin into a bundle format with separate actions:
 - 1 custom action with full form controls (preserves original behavior)
 - 9 individual preset actions (due/defer/review dates for 7/14/30 day periods)
-- Each action contains its own utility functions for reliable compatibility
 - Each action appears separately in the Automation menu
 - No more dropdown selection needed - direct access to each function
 
