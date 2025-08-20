@@ -7,7 +7,6 @@
   "label": "Shuffle Dates",
   "defaultLocale": "en",
   "description": "A plug-in bundle that randomly assigns due, defer, and review dates to selected tasks and projects with customizable options and quick presets",
-  "library": "library.js",
   "actions": [
     {
       "identifier": "customShuffle",
